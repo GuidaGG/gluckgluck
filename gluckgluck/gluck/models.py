@@ -9,17 +9,26 @@ class Page(models.Model):
     def __str__(self):
         return self.title
 
+#class Section(models.Model):
+#    page = models.ForeignKey(Page, on_delete=models.CASCADE, default=None)
+#    section_title = models.TextField(null=False, max_length=200)
+#    def __str__(self):
+#        return self.section_title
+
 class Section(models.Model):
     page = models.ForeignKey(Page, on_delete=models.CASCADE, default=None)
-    section_title = models.TextField(null=False)
+    section_title = models.CharField(blank=True, null=True, max_length=200)
+    text = models.TextField(blank=True, null=True)
+    image = models.ImageField(blank=True, null=True)
     def __str__(self):
-        return self.section_title
-
-class Component(models.Model):
-    page = models.ForeignKey(Section, on_delete=models.CASCADE, default=None)
-    text = models.TextField(null=False)
-    def __str__(self):
-        return self.text
+        if self.section_title:
+            return self.section_title
+        elif self.text:
+            return self.text
+        elif self.image:
+            return self.image
+        else:
+            return 'section'
 
 
 class Event(models.Model):

@@ -1,39 +1,29 @@
 from django.contrib import admin
-from .models import Event, Page, Component, Section
+from merged_inlines.admin import MergedInlineAdmin
+from inline_ordering.admin import OrderableStackedInline
+from .models import Event, Section, Page
+
 
 # Register your models here.
 
-class ComponentInline(admin.TabularInline):
-    model = Component
-    min_num = 1
-    can_delete = True
-    extra = 0
 
 
-class SectionInline(admin.TabularInline):
+class SectionInline(OrderableStackedInline):
     model = Section
-    min_num = 1
     can_delete = True
-    extra = 0
-
-
+    extra = 1
+    min_num = 1
+    
+ 
 class PageAdmin(admin.ModelAdmin):
+    model = Page
     inlines = [
-        SectionInline,
-        ComponentInline,
+        SectionInline
     ]
-
-class SectionAdmin(admin.ModelAdmin):
-    inlines = [
-        ComponentInline,
-    ]
-
 
 class EventAdmin(admin.ModelAdmin):
     exclude = ('active', 'published_date')
 
 admin.site.register(Event, EventAdmin)
 admin.site.register(Page, PageAdmin)
-admin.site.register(Section, SectionAdmin)
-admin.site.register(Component)
 
