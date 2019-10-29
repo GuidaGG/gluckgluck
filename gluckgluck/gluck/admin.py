@@ -26,4 +26,6 @@ class EventAdmin(admin.ModelAdmin):
 
 admin.site.register(Event, EventAdmin)
 admin.site.register(Page, PageAdmin)
-
+admin.site.site_header = "GluckGluck Admin"
+admin.site.site_title = ""
+admin.site.index_title = ""

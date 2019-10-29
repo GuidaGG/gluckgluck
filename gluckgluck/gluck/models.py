@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from ckeditor.fields import RichTextField
 
 
 # Create your models here.
@@ -18,17 +19,21 @@ class Page(models.Model):
 class Section(models.Model):
     page = models.ForeignKey(Page, on_delete=models.CASCADE, default=None)
     section_title = models.CharField(blank=True, null=True, max_length=200)
-    text = models.TextField(blank=True, null=True)
+    text = RichTextField(blank=True, null=True)
     image = models.ImageField(blank=True, null=True)
     def __str__(self):
+        text = ""
         if self.section_title:
-            return self.section_title
-        elif self.text:
-            return self.text
-        elif self.image:
-            return self.image
-        else:
-            return 'section'
+            text+="title "
+        if self.text:
+             text+="text "
+        if self.image:
+             text+="image " 
+        return text
+    
+    class Meta:
+        verbose_name = "Component"
+
 
 
 class Event(models.Model):
