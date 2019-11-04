@@ -18,4 +18,22 @@
         <img size="50% 50%"src="{{ section.image.url}} ">
         {% endif %}
     {% endfor %}
+
+
+     {% for event in events %}
+        {% if event.title  %}
+            {% if forloop.counter0 > 0  %}
+                </Section>
+            {% endif %}
+            <section class="section" id="section_{{forloop.counter0}}"> 
+            <h1> {{event.title }} </h1>
+        {% endif %}
+        {% if event.subtitle  %}
+            <p> {{ event.subtitle  | safe | linebreaks}} </p>
+        {% endif %}
+        {% if event.date %}
+        <p> {{ event.date}} </p>
+        {% endif %}
+    {% endfor %}
+
 {% endblock content %}

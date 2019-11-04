@@ -1,0 +1,76 @@
+
+
+#header{
+ 
+    background-color: white;
+    border-bottom: solid 1px black;
+    #branding{
+        color: black; 
+        h1{  
+            color: black;  
+            a:link{
+                color: black !important; 
+                font-size: 28px;
+       
+            }
+        }
+        a{
+            color: black; 
+        }
+    }
+}
+
+a:link, a:visited {
+    color: black !important; 
+    
+}
+a:hover{
+    color: grey !important; 
+    
+}
+div.app-auth caption{
+    display: none;
+}
+div.breadcrumbs, .module caption{
+    font-size: 18px;
+    color: black;
+    background-color:white;
+    background:white;
+    border-bottom: solid 1px black;
+    padding: 10px;
+
+    table th{
+        font-size: 18px;
+        padding: 10px;
+    }
+}
+
+div.breadcrumbs{
+    padding-left: 40px;
+}
+.addlink, .changelink{
+    background: none;
+}
+
+#content-related{
+
+    background:white;
+    border: solid black 1px;
+    color:black
+}
+#content-related .actionlist li{
+    padding-left: 0px;
+}
+
+thead th, .inline-group h2{
+    background: white;
+    color: black;
+    border: none;
+    border-bottom: black solid 1px;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="number"], input[type="tel"], textarea, select, .vTextField{
+    border-radius: 0px;
+    padding: 10px;
+}
+

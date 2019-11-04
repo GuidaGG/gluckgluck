@@ -23,7 +23,7 @@
 
   function runInitialisers() {
     if (!window.CKEDITOR) {
-      setTimeout(runInitialisers, 100);
+     setTimeout(runInitialisers, 100);
       return;
     }
 
@@ -39,16 +39,26 @@
   }
 
   function initialiseCKEditor() {
-    var textareas = Array.prototype.slice.call(document.querySelectorAll('textarea[data-type=ckeditortype]'));
-    for (var i=0; i<textareas.length; ++i) {
-      var t = textareas[i];
-      if (t.getAttribute('data-processed') == '0' && t.id.indexOf('__prefix__') == -1) {
-        t.setAttribute('data-processed', '1');
-        var ext = JSON.parse(t.getAttribute('data-external-plugin-resources'));
-        for (var j=0; j<ext.length; ++j) {
-          CKEDITOR.plugins.addExternal(ext[j][0], ext[j][1], ext[j][2]);
-        }
-        CKEDITOR.replace(t.id, JSON.parse(t.getAttribute('data-config')));
+    var containers = document.getElementsByClassName('inline-related ');
+
+    for (var i=0; i<containers.length; ++i) {
+    var classes = containers[i].className;
+
+    var textareas = Array.prototype.slice.call(containers[i].querySelectorAll('textarea'));
+
+      for (var l=0; l<textareas.length; ++l) {
+      
+        var t = textareas[l];
+        if(t.value != "" || classes != 'inline-related has_original'){
+          if (t.getAttribute('data-processed') == '0' && t.id.indexOf('__prefix__') == -1) {
+            t.setAttribute('data-processed', '1');
+            var ext = JSON.parse(t.getAttribute('data-external-plugin-resources'));
+            for (var j=0; j<ext.length; ++j) {
+              CKEDITOR.plugins.addExternal(ext[j][0], ext[j][1], ext[j][2]);
+            }
+            CKEDITOR.replace(t.id, JSON.parse(t.getAttribute('data-config')));
+          }
+       }
       }
     }
   }

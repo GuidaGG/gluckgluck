@@ -1,0 +1,63 @@
+#header {
+  background-color: white;
+  border-bottom: solid 1px black; }
+  #header #branding {
+    color: black; }
+    #header #branding h1 {
+      color: black; }
+      #header #branding h1 a:link {
+        color: black !important;
+        font-size: 28px; }
+    #header #branding a {
+      color: black; }
+
+a:link, a:visited {
+  color: black !important; }
+
+a:hover {
+  color: grey !important; }
+
+div.app-auth caption {
+  display: none; }
+
+div.breadcrumbs, .module caption {
+  font-size: 18px;
+  color: black;
+  background-color: white;
+  background: white;
+  border-bottom: solid 1px black;
+  padding: 10px; }
+  div.breadcrumbs table th, .module caption table th {
+    font-size: 18px;
+    padding: 10px; }
+
+div.breadcrumbs {
+  padding-left: 40px; }
+
+.addlink, .changelink {
+  background: none; }
+
+#content-related {
+  background: white;
+  border: solid black 1px;
+  color: black; }
+
+#content-related .actionlist li {
+  padding-left: 0px; }
+
+thead th, .inline-group h2 {
+  background: white;
+  color: black;
+  border: none;
+  border-bottom: black solid 1px; }
+
+input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="number"], input[type="tel"], textarea, select, .vTextField {
+  border-radius: 0px;
+  padding: 10px; }
+
+.field-order {
+  width: 50px; }
+  .field-order input {
+    width: 30px; }
+
+/*# sourceMappingURL=admin-extra.css.map */
